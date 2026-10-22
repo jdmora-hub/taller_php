@@ -1,0 +1,128 @@
+
+.tarjeta-app {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tarjeta-app h3 {
+  font-size: 18px;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.tarjeta-app p {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+.boton-enlace {
+  display: inline-block;
+  background-color: #82858b;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.boton-enlace:hover {
+  background-color: #b3b5ba;
+}
+
+.contenedor-app {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.app-encabezado {
+  margin-bottom: 20px;
+}
+
+.app-encabezado h2 {
+  font-size: 22px;
+  color: #1e293b;
+}
+
+.app-encabezado p {
+  font-size: 14px;
+  color: #64748b;
+}
+
+.formulario-grupo {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario-grupo label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #334155;
+}
+
+.formulario-control {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.formulario-control:focus {
+  border-color: #2563eb;
+}
+
+.boton-submit {
+  background-color: #abb0ae;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.boton-submit:hover {
+  background-color: #1d4ed8;
+}
+
+
+.panel-resultado {
+  margin-top: 25px;
+  padding: 15px 20px;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+}
+
+.panel-resultado h4 {
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.mensaje-error {
+  margin-top: 20px;
+  padding: 12px 15px;
+  background-color: #fef2f2;
+  border-left: 4px solid #dc2626;
+  color: #991b1b;
+  border-radius: 4px;
+  font-size: 14px;
+}
