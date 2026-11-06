@@ -8,7 +8,6 @@ class Secuencia {
         $this->operacion = $operacion;
     }
 
-    // Getters y Setters
     public function getNumero(): int {
         return $this->numero;
     }
@@ -25,10 +24,6 @@ class Secuencia {
         $this->operacion = $operacion;
     }
 
-    /**
-     * Genera un arreglo con la serie de Fibonacci hasta 'n' términos.
-     * Ejemplo para n = 5: [0, 1, 1, 2, 3]
-     */
     public function calcularFibonacci(): array {
         $n = $this->numero;
         
@@ -50,15 +45,12 @@ class Secuencia {
         return $serie;
     }
 
-    /**
-     * Calcula el Factorial de 'n' (n!).
-     * Ejemplo para n = 5: 5 * 4 * 3 * 2 * 1 = 120
-     */
+
     public function calcularFactorial(): float {
         $n = $this->numero;
 
         if ($n < 0) {
-            return -1; // Indicar error para números negativos
+            return -1;
         }
 
         if ($n === 0 || $n === 1) {

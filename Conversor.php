@@ -14,10 +14,6 @@ class Conversor {
         $this->numeroDecimal = $numeroDecimal;
     }
 
-    /**
-     * Convierte el número decimal a binario mediante divisiones sucesivas entre 2.
-     * No utiliza decbin().
-     */
     public function convertirABinario(): string {
         $numero = $this->numeroDecimal;
 
@@ -33,7 +29,6 @@ class Conversor {
             $numero = (int)($numero / 2);
         }
 
-        // Invertir el arreglo de residuos manualmente para construir el número binario
         $binario = "";
         $totalResiduos = count($residuos);
 
@@ -44,10 +39,6 @@ class Conversor {
         return $binario;
     }
 
-    /**
-     * Genera un arreglo con el paso a paso del procedimiento de conversión
-     * para facilitar la explicación académica en la sustentación.
-     */
     public function obtenerPasoAPaso(): array {
         $numero = $this->numeroDecimal;
         $pasos = [];
