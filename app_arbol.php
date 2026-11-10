@@ -70,27 +70,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <p>Ingrese al menos dos recorridos para generar la estructura jerárquica del Árbol Binario.</p>
     </div>
 
-    <div style="background-color: #fffbeeb; border-left: 4px solid #f59e0b; padding: 12px; margin-bottom: 20px; font-size: 14px; color: #7da0e1;">
-        Nota: Para reconstruir de forma única un árbol binario es importante incluir el recorrido Inorden
-    </div>
-
     <form action="app_arbol.php" method="POST">
         <div class="formulario-grupo">
             <label for="preorden">Recorrido Preorden:</label>
             <input type="text" id="preorden" name="preorden" class="formulario-control" 
-                   placeholder="Ejemplo: A, B, D, E, C" value="<?php echo htmlspecialchars($cadenaPre); ?>">
+                   value="<?php echo $cadenaPre; ?>">
         </div>
 
         <div class="formulario-grupo">
             <label for="inorden">Recorrido Inorden:</label>
             <input type="text" id="inorden" name="inorden" class="formulario-control" 
-                   placeholder="Ejemplo: D, B, E, A, C" value="<?php echo htmlspecialchars($cadenaIn); ?>">
+                   value="<?php echo $cadenaIn; ?>">
         </div>
 
         <div class="formulario-grupo">
             <label for="postorden">Recorrido Postorden:</label>
             <input type="text" id="postorden" name="postorden" class="formulario-control" 
-                   placeholder="Ejemplo: D, E, B, C, A" value="<?php echo htmlspecialchars($cadenaPost); ?>">
+                   value="<?php echo $cadenaPost; ?>">
         </div>
 
         <button type="submit" class="boton-submit">Reconstruir Árbol</button>
@@ -98,20 +94,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
     <?php if ($advertencia !== ""): ?>
-        <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; padding: 12px; margin-top: 15px; font-size: 14px; color: #92400e;">
-            <p><strong>Aviso:</strong> <?php echo htmlspecialchars($advertencia); ?></p>
+        <div class="mensaje-advertencia">
+            <p><strong>Aviso:</strong> <?php echo $advertencia; ?></p>
         </div>
     <?php endif; ?>
 
     <?php if ($arbolRenderizado !== "" && $error === ""): ?>
         <div class="panel-resultado">
             <h4>Estructura del Árbol Binario Reconstruido:</h4>
-            <pre style="background-color: #0646ae; color: #38bdf8; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 15px; overflow-x: auto;"><?php echo htmlspecialchars($arbolRenderizado); ?></pre>
+            <pre class="codigo-arbol"><?php echo $arbolRenderizado; ?></pre>
         </div>
     <?php endif; ?>
 </section>

@@ -12,26 +12,6 @@ body {
   background-color: #f8fafc;
 }
 
-header {
-  background-color: #1e293b;
-  color: #ffffff;
-  padding: 20px 0;
-}
-
-header h1 {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
-}
-
-header p {
-  text-align: center;
-  font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 15px;
-}
-
 nav {
   background-color: #0f172a;
   padding: 10px;

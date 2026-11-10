@@ -75,44 +75,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <form action="app_conjuntos.php" method="POST">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="grid-formulario">
             <div class="formulario-grupo">
                 <label for="conjunto_a">Conjunto A (enteros separados por comas o espacios):</label>
-                <input type="text" id="conjunto_a" name="conjunto_a" class="formulario-control" 
-                       placeholder="Ejemplo: 1, 2, 3, 4, 5" 
-                       value="<?php echo htmlspecialchars($cadenaA); ?>">
+                <input type="text" id="conjunto_a" name="conjunto_a" class="formulario-control"  
+                       value="<?php echo $cadenaA; ?>">
             </div>
 
             <div class="formulario-grupo">
                 <label for="conjunto_b">Conjunto B (enteros separados por comas o espacios):</label>
                 <input type="text" id="conjunto_b" name="conjunto_b" class="formulario-control" 
-                       placeholder="Ejemplo: 4, 5, 6, 7, 8" 
-                       value="<?php echo htmlspecialchars($cadenaB); ?>">
+                       value="<?php echo $cadenaB; ?>">
             </div>
         </div>
 
-        <button type="submit" class="boton-submit" style="margin-top: 10px;">Calcular Operaciones</button>
+        <button type="submit" class="boton-submit">Calcular Operaciones</button>
     </form>
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
     <?php if ($union !== null && $error === ""): ?>
         <div class="panel-resultado">
             <h4>Conjuntos Evaluados (sin elementos repetidos):</h4>
-            <p><strong>A:</strong> <?php echo htmlspecialchars(formatoConjunto($conjuntoA_limpio)); ?></p>
-            <p><strong>B:</strong> <?php echo htmlspecialchars(formatoConjunto($conjuntoB_limpio)); ?></p>
+            <p><strong>A:</strong> <?php echo formatoConjunto($conjuntoA_limpio); ?></p>
+            <p><strong>B:</strong> <?php echo formatoConjunto($conjuntoB_limpio); ?></p>
             
-            <hr style="margin: 15px 0; border: 0; border-top: 1px solid #cbd5e1;">
+            <hr class="separador-resultado">
             
             <h4>Resultados Operacionales:</h4>
-            <p><strong>1. Unión (A u B):</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo htmlspecialchars(formatoConjunto($union)); ?></span></p>
-            <p><strong>2. Intersección (A \ B):</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo htmlspecialchars(formatoConjunto($interseccion)); ?></span></p>
-            <p><strong>3. Diferencia (A - B):</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo htmlspecialchars(formatoConjunto($difAB)); ?></span></p>
-            <p><strong>4. Diferencia (B - A):</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo htmlspecialchars(formatoConjunto($difBA)); ?></span></p>
+            <p><strong>1. Unión (A ∪ B):</strong> <span class="texto-destacado"><?php echo formatoConjunto($union); ?></span></p>
+            <p><strong>2. Intersección (A ∩ B):</strong> <span class="texto-destacado"><?php echo formatoConjunto($interseccion); ?></span></p>
+            <p><strong>3. Diferencia (A - B):</strong> <span class="texto-destacado"><?php echo formatoConjunto($difAB); ?></span></p>
+            <p><strong>4. Diferencia (B - A):</strong> <span class="texto-destacado"><?php echo formatoConjunto($difBA); ?></span></p>
         </div>
     <?php endif; ?>
 </section>

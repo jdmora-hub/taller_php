@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="formulario-grupo">
             <label for="numero_decimal">Número decimal</label>
             <input type="number" id="numero_decimal" name="numero_decimal" class="formulario-control" 
-                   value="<?php echo htmlspecialchars((string)$numeroIngresado); ?>" required min="0">
+                   value="<?php echo $numeroIngresado; ?>" required min="0">
         </div>
 
         <button type="submit" class="boton-submit">Convertir a Binario</button>
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="panel-resultado">
             <h4>Resultado de la Conversión:</h4>
             <p><strong>Número Decimal:</strong> <?php echo (int)$numeroIngresado; ?></p>
-            <p><strong>Representación Binaria :</strong><?php echo htmlspecialchars($resultadoBinario); ?><sub>2</sub></p>
+            <p><strong>Representación Binaria :</strong><?php echo $resultadoBinario; ?><sub>2</sub></p>
         </div>
     <?php endif; ?>
 </section>

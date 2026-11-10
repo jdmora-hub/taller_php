@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <label for="numeros">Valores numéricos:</label>
 
             <textarea id="numeros" name="numeros" class="formulario-control" rows="4" 
-                      placeholder="Ejemplo: 4.5, 8.0, 3.2, 8.0, 10.5, 2.1" required><?php echo htmlspecialchars($cadenaNumeros); ?></textarea>
+                      required><?php echo $cadenaNumeros; ?></textarea>
         </div>
 
         <button type="submit" class="boton-submit">Calcular Estadísticas</button>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
@@ -77,20 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="panel-resultado">
             <h4>Resultados del Análisis Estadístico:</h4>
             <p><strong>Total de datos procesados:</strong> <?php echo count($datosProcesados); ?></p>
-            <p><strong>Datos ingresados:</strong> <?php echo htmlspecialchars(implode(", ", $datosProcesados)); ?></p>
-            <hr style="margin: 10px 0; border: 0; border-top: 1px solid #cbd5e1;">
+            <p><strong>Datos ingresados:</strong> <?php echo implode(", ", $datosProcesados); ?></p>
+            <hr class="separador-resultado">
             
-            <p><strong>1. Promedio / Media Aritmética:</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo number_format($promedio, 2); ?></span></p>
+            <p><strong>1. Promedio / Media Aritmética:</strong> <span class="texto-destacado"><?php echo number_format($promedio, 2); ?></span></p>
             
-            <p><strong>2. Mediana:</strong> <span style="color: #2563eb; font-weight: bold;"><?php echo number_format($mediana, 2); ?></span></p>
+            <p><strong>2. Mediana:</strong> <span class="texto-destacado"><?php echo number_format($mediana, 2); ?></span></p>
             
             <p><strong>3. Moda:</strong> 
-                <span style="color: #2563eb; font-weight: bold;">
+                <span class="texto-destacado">
                     <?php 
                     if (empty($modas)) {
-                        echo "Amodal (no hay valores repetidos)";
+                        echo "no hay valores repetidos";
                     } else {
-                        echo htmlspecialchars(implode(", ", $modas));
+                        echo implode(", ", $modas);
                     }
                     ?>
                 </span>

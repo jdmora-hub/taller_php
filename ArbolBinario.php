@@ -40,7 +40,7 @@ class ArbolBinario {
         }
 
         if ($tienePre && $tienePost && !$tieneIn) {
-            $this->advertenciaAmbiguedad = "Atención: La combinación Preorden + Postorden no garantiza un árbol binario único a menos que sea un árbol estrictamente lleno. Se construirá una representación asumida.";
+            $this->advertenciaAmbiguedad = "Atención: La combinación Preorden + Postorden no garantiza un árbol binario único a menos que sea un árbol estrictamente lleno";
             $this->raiz = $this->construirDesdePreordenPostorden($this->preorden, $this->postorden);
             return true;
         }
