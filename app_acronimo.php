@@ -26,14 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <section class="contenedor-app">
     <div class="app-encabezado">
         <h2>1. Generador de Acrónimos</h2>
-        <p>Ingrese una frase para generar su acrónimo. </p>
+        <p>Ingrese una frase para generar su acrónimo.</p>
     </div>
 
     <form action="app_acronimo.php" method="POST">
         <div class="formulario-grupo">
             <label for="frase">Frase o Nombre Completo:</label>
             <input type="text" id="frase" name="frase" class="formulario-control" 
-                   value="<?php echo htmlspecialchars($textoIngresado); ?>" required>
+                   value="<?php echo $textoIngresado; ?>" required>
         </div>
 
         <button type="submit" class="boton-submit">Generar Acrónimo</button>
@@ -41,15 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
     <?php if ($resultado !== "" && $error === ""): ?>
         <div class="panel-resultado">
             <h4>Resultado Obtenido:</h4>
-            <p><strong>Frase original:</strong> <?php echo htmlspecialchars($textoIngresado); ?></p>
-            <p><strong>Acrónimo generado:</strong><?php echo htmlspecialchars($resultado); ?></p>
+            <p><strong>Frase original:</strong> <?php echo $textoIngresado; ?></p>
+            <p><strong>Acrónimo generado:</strong> <?php echo $resultado; ?></p>
         </div>
     <?php endif; ?>
 </section>

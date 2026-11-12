@@ -290,3 +290,7 @@ header {
   color: #2563eb;
   font-weight: bold;
 }
+
+.texto-serie {
+  word-break: break-all;
+}

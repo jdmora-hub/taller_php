@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="formulario-grupo">
             <label for="numero">Número entero:</label>
             <input type="number" id="numero" name="numero" class="formulario-control" 
-                   value="<?php echo htmlspecialchars((string)$numeroIngresado); ?>" required min="0" max="170">
+                   value="<?php echo $numeroIngresado; ?>" required min="0" max="170">
         </div>
 
         <div class="formulario-grupo">
@@ -63,20 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <?php if ($error !== ""): ?>
         <div class="mensaje-error">
-            <p><strong>Error:</strong> <?php echo htmlspecialchars($error); ?></p>
+            <p><strong>Error:</strong> <?php echo $error; ?></p>
         </div>
     <?php endif; ?>
 
     <?php if (!empty($resultadoFibonacci)): ?>
         <div class="panel-resultado">
             <h4>Serie de Fibonacci</h4>
-            <p style="word-break: break-all;">
+            <p class="texto-serie">
                 <?php 
                 $elementosTexto = [];
                 foreach ($resultadoFibonacci as $val) {
                     $elementosTexto[] = (string)$val;
                 }
-                echo htmlspecialchars(implode(", ", $elementosTexto)); 
+                echo implode(", ", $elementosTexto); 
                 ?>
             </p>
         </div>
@@ -85,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php if ($resultadoFactorial !== null && $error === ""): ?>
         <div class="panel-resultado">
             <h4>Resultado del Factorial</h4>
-            <p><strong><?php echo htmlspecialchars(number_format($resultadoFactorial, 0, '', '')); ?></strong></p>
+            <p><strong><?php echo number_format($resultadoFactorial, 0, '', ''); ?></strong></p>
         </div>
     <?php endif; ?>
 </section>
