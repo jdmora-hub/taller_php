@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($num < 0) {
             $error = "El número debe ser mayor o igual a cero.";
         } elseif ($operacionSeleccionada === "factorial" && $num > 170) {
-            $error = "El número ingresado supera el límite de precisión numérica para el cálculo del factorial (máximo 170).";
+            $error = "El número ingresado supera el límite de 170.";
         } elseif ($operacionSeleccionada === "fibonacci" && ($num < 1 || $num > 100)) {
             $error = "Para la serie de Fibonacci, ingrese un número de términos entre 1 y 100.";
         } else {

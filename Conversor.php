@@ -38,34 +38,4 @@ class Conversor {
 
         return $binario;
     }
-
-    public function obtenerPasoAPaso(): array {
-        $numero = $this->numeroDecimal;
-        $pasos = [];
-
-        if ($numero === 0) {
-            return [
-                [
-                    'cociente' => 0,
-                    'dividendo' => 0,
-                    'residuo' => 0
-                ]
-            ];
-        }
-
-        while ($numero > 0) {
-            $cociente = (int)($numero / 2);
-            $residuo = $numero % 2;
-
-            array_push($pasos, [
-                'dividendo' => $numero,
-                'cociente' => $cociente,
-                'residuo' => $residuo
-            ]);
-
-            $numero = $cociente;
-        }
-
-        return $pasos;
-    }
 }

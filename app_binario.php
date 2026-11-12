@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $num = (int)$numeroIngresado;
 
         if ($num < 0) {
-            $error = "El conversor solo acepta números enteros mayores o iguales a cero (enteros no negativos).";
+            $error = "El conversor solo acepta números enteros mayores o iguales a cero.";
         } else {
             $conversor = new Conversor($num);
             $resultadoBinario = $conversor->convertirABinario();

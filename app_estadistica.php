@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         if (count($datos) === 0) {
-            $error = "No se detectaron valores numéricos válidos. Asegúrese de separarlos por comas o espacios.";
+            $error = "No hay valores numéricos válidos.";
         } else {
             $datosProcesados = $datos;
             $estadistica = new Estadistica($datos);
