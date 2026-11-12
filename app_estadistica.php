@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p><strong>Datos ingresados:</strong> <?php echo implode(", ", $datosProcesados); ?></p>
             <hr class="separador-resultado">
             
-            <p><strong>1. Promedio / Media Aritmética:</strong> <span class="texto-destacado"><?php echo number_format($promedio, 2); ?></span></p>
+            <p><strong>1. Promedio:</strong> <span class="texto-destacado"><?php echo number_format($promedio, 2); ?></span></p>
             
             <p><strong>2. Mediana:</strong> <span class="texto-destacado"><?php echo number_format($mediana, 2); ?></span></p>
             
