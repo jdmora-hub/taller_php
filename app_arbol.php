@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (!$exito) {
             $error = "No se pudo construir el árbol, verifique que los elementos ingresados en los recorridos sean consistentes.";
         } else {
-            $arbolRenderizado = $arbol->imprimirEstructura();
+            $arbolRenderizado = $arbol->generarSVG();
             $advertencia = $arbol->getAdvertenciaAmbiguedad();
         }
     }
@@ -107,7 +107,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php if ($arbolRenderizado !== "" && $error === ""): ?>
         <div class="panel-resultado">
             <h4>Estructura del Árbol Binario Reconstruido:</h4>
-            <pre class="codigo-arbol"><?php echo $arbolRenderizado; ?></pre>
+            <div class="contenedor-svg-arbol">
+                <?php echo $arbolRenderizado; ?>
+            </div>
         </div>
     <?php endif; ?>
 </section>

@@ -206,28 +206,61 @@ class ArbolBinario {
         return $nodoRaiz;
     }
 
-    public function imprimirEstructura(?NodoArbol $nodo = null, string $prefijo = "", bool $esUltimo = true): string {
-        if ($nodo === null && $prefijo === "") {
-            $nodo = $this->raiz;
+    public function generarSVG(): string {
+        if ($this->raiz === null) {
+            return "";
         }
 
+        $altura = $this->obtenerAltura($this->raiz);
+        $altoNivel = 80;
+        $radio = 20;
+        $anchoTotal = pow(2, $altura) * 45;
+        if ($anchoTotal < 320) {
+            $anchoTotal = 320;
+        }
+        $altoTotal = ($altura * $altoNivel) + 40;
+
+        $svgElementos = $this->dibujarNodoSVG($this->raiz, $anchoTotal / 2, 40, $anchoTotal / 4, $altoNivel, $radio);
+
+        return '<svg width="' . $anchoTotal . '" height="' . $altoTotal . '" viewBox="0 0 ' . $anchoTotal . ' ' . $altoTotal . '">' 
+               . $svgElementos . 
+               '</svg>';
+    }
+
+    private function obtenerAltura(?NodoArbol $nodo): int {
         if ($nodo === null) {
-            return "Árbol Vacío";
+            return 0;
+        }
+        $izq = $this->obtenerAltura($nodo->izquierdo);
+        $der = $this->obtenerAltura($nodo->derecho);
+        return 1 + ($izq > $der ? $izq : $der);
+    }
+
+    private function dibujarNodoSVG(?NodoArbol $nodo, float $x, float $y, float $separacionX, float $altoNivel, int $radio): string {
+        if ($nodo === null) {
+            return "";
         }
 
-        $salida = $prefijo . ($esUltimo ? "└── " : "├── ") . $nodo->valor . "\n";
+        $html = "";
+        $siguienteY = $y + $altoNivel;
 
-        $hijos = [];
-        if ($nodo->izquierdo !== null) array_push($hijos, ['nodo' => $nodo->izquierdo, 'tipo' => 'IZQ']);
-        if ($nodo->derecho !== null) array_push($hijos, ['nodo' => $nodo->derecho, 'tipo' => 'DER']);
-
-        $cantHijos = count($hijos);
-        for ($i = 0; $i < $cantHijos; $i++) {
-            $nuevoPrefijo = $prefijo . ($esUltimo ? "    " : "│   ");
-            $ultimoHijo = ($i === $cantHijos - 1);
-            $salida .= $this->imprimirEstructura($hijos[$i]['nodo'], $nuevoPrefijo, $ultimoHijo);
+        // 1. Dibujar primero las líneas (palitos) hacia los hijos para que queden detrás de las bolitas
+        if ($nodo->izquierdo !== null) {
+            $hijoIzqX = $x - $separacionX;
+            $html .= '<line x1="' . $x . '" y1="' . $y . '" x2="' . $hijoIzqX . '" y2="' . $siguienteY . '" class="arbol-linea" />';
+            $html .= $this->dibujarNodoSVG($nodo->izquierdo, $hijoIzqX, $siguienteY, $separacionX / 2, $altoNivel, $radio);
         }
 
-        return $salida;
+        if ($nodo->derecho !== null) {
+            $hijoDerX = $x + $separacionX;
+            $html .= '<line x1="' . $x . '" y1="' . $y . '" x2="' . $hijoDerX . '" y2="' . $siguienteY . '" class="arbol-linea" />';
+            $html .= $this->dibujarNodoSVG($nodo->derecho, $hijoDerX, $siguienteY, $separacionX / 2, $altoNivel, $radio);
+        }
+
+        // 2. Dibujar la bolita (círculo) y el texto del nodo encima
+        $html .= '<circle cx="' . $x . '" cy="' . $y . '" r="' . $radio . '" class="arbol-nodo" />';
+        $html .= '<text x="' . $x . '" y="' . $y . '" dy="5" text-anchor="middle" class="arbol-texto">' . $nodo->valor . '</text>';
+
+        return $html;
     }
 }

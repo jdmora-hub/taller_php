@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 .tarjeta-app {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -24,7 +26,7 @@
 
 .boton-enlace {
   display: inline-block;
-  background-color: #82858b;
+  background-color: #36db93;
   color: #ffffff;
   text-decoration: none;
   padding: 8px 16px;
@@ -42,10 +44,12 @@
 
 .contenedor-app {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  padding: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  max-width: 750px;
+  margin: 25px auto;
+  padding: 35px 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
 }
 
 .app-encabezado {
@@ -88,7 +92,7 @@
 }
 
 .boton-submit {
-  background-color: #abb0ae;
+  background-color: #cc8989;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -224,7 +228,7 @@
 
 .boton-volver {
   display: inline-block;
-  background-color: #64748b;
+  background-color: #6c99cf;
   color: #ffffff;
   text-decoration: none;
   padding: 6px 12px;
@@ -253,15 +257,6 @@ header {
   color: #92400e;
 }
 
-.codigo-arbol {
-  background-color: #1e293b;
-  color: #38bdf8;
-  padding: 15px;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 15px;
-  overflow-x: auto;
-}
 
 .grid-formulario {
   display: grid;
@@ -291,4 +286,31 @@ header {
 
 .texto-serie {
   word-break: break-all;
+}
+
+.contenedor-svg-arbol {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 20px;
+  overflow-x: auto;
+  text-align: center;
+}
+
+.arbol-linea {
+  stroke: #64748b;
+  stroke-width: 2;
+}
+
+.arbol-nodo {
+  fill: #2563eb;
+  stroke: #1e3a8a;
+  stroke-width: 2;
+}
+
+.arbol-texto {
+  fill: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
 }
